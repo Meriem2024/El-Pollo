@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/favicon_mexican_hat.png">
+    <link rel="stylesheet" href="style.css">
+    <title>El Pollo Loco</title>
+    <script src="models/drawable-object.class.js"></script>
+    <script src="models/movable-object.class.js"></script>
+    <script src="models/character.class.js"></script>
+    <script src="models/chicken.class.js"></script>
+    <script src="models/small-chicken.class.js"></script>
+    <script src="models/cloud.class.js"></script>
+    <script src="models/status-bar.class.js"></script>
+    <script src="models/status-coin.class.js"></script>
+    <script src="models/status-bottle.class.js"></script>
+    <script src="models/status-endboss.class.js"></script>
+    <script src="models/world.class.js"></script>
+    <script src="models/background-object.class.js"></script>
+    <script src="models/bottle.class.js"></script>
+    <script src="models/keyboard.class.js"></script>
+    <script src="models/level.class.js"></script>
+    <script src="models/endboss.class.js"></script>
+    <script src="models/throwable-object.class.js"></script>
+    <script src="models/coin.class.js"></script>
+    <script src="levels/level1.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body onload="bodyInit()">
+    <div id="game-wrapper">
+        <h1>-El Pollo Loco-</h1>
+        <div id="touch-keyboard" class="console left d-none">
+            <div class="mobile-button">
+                <span class="hover console-button" id="jump-action">></span>
+                <span class="hover console-button" id="go-left">&lt;</span>
+            </div>
+        </div>
+        <div id="start" class="height responsive">
+            <section id="manage" class="d-none overlay responsive">
+                <section class="section manage-section">
+                    <p onclick="hideManageSection()" class="close center">X</p>
+                    <table>
+                        <tr>
+                            <td><img src="img/back.png"></td>
+                            <td>Left</td>
+                        </tr>
+                        <tr>
+                            <td><img class="only-desktop" src="img/d.png"><img class="only-mobile throw"
+                                    src="img/forward.png">
+                            </td>
+                            <td>Throw</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <th><img src="img/forward.png"></th>
+                            <th>Right</th>
+                        </tr>
+                        <tr>
+                            <th><img class="only-desktop" src="img/space.png"><img class="only-mobile jump"
+                                    src="img/forward.png"></th>
+                            <th>Jump</th>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+            <section id="imprint-content" class="d-none end overlay responsive">
+                <section class="section info-box">
+                    <p onclick="closeImprint()" class="close close-info center">X</p>
+                    <div class="impressum">
+                        <h2>Impressum</h2>
+                        <p>Angaben gemäß &#167;5 TMG: </p>
+                        <p>Meriem Weigert <br>
+                            c/o COCENTER<br />
+                            Koppoldstr. 1<br />
+                            86551 Aichach<br>
+                            E-Mail: info@weigert-webdev.de <br>
+                        </p>
+                    </div>
+                </section>
+            </section>
+            <img class="startscreen responsive" src="img/9_intro_outro_screens/start/startscreen_1.png">
+            <button onclick="init()" class="play-button">Play Now</button>
+        </div>
+        <div id="game-over" class="height width responsive pos-relative" style="display: none">
+            <img class="endscreen responsive" src="img/9_intro_outro_screens/win/won_2.png">
+            <img onclick="playAgain()" id="start-over" class="end-btn" src="img/restart.png">
+            <img onclick="home()" id="home" class="end-btn" src="img/home.png">
+        </div>
+        <div id="you-lost" class="height width responsive pos-relative" style="display: none">
+            <img class="endscreen responsive" src="img/9_intro_outro_screens/game_over/game over.png">
+            <img onclick="playAgain()" id="start-over" class="end-btn" src="img/restart.png">
+            <img onclick="home()" id="home" class="end-btn" src="img/home.png">
+        </div>
+        <canvas id="canvas" class="height" style="display: none" width="720" height="480"></canvas>
+        <footer>
+            <div onclick="mute()" id="change-speaker" class="hover"></div>
+
+            <img onclick="showImprint()" id="open-imprint" class="menu hover" src="img/open-imprint.png">
+            <img onclick="handleGame()" id="gaming" class="menu hover" src="img/open-book.png">
+        </footer>
+        <div id="touch-keyboard" class="console right d-none">
+            <div class="mobile-button">
+                <span class="hover console-button" id="throw-action">&gt;</span>
+                <span class="hover console-button" id="go-right">&gt;
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="rotate">
+        <img src="img/rotate.png" class="rotate">
+        <p class="device-view">Rotate Device to play!</p>
+    </div>
+</body>
+
+</html>
